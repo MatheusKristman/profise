@@ -1,0 +1,129 @@
+.top-pro {
+  width: 100%;
+  padding-bottom: 50px;
+
+  @include breakpoint(smallScreen) {
+    padding-bottom: 100px;
+  }
+
+  &__container {
+    width: 100%;
+
+    &__title {
+      font-size: 1.7rem;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 15px;
+
+      @include breakpoint(smallScreen) {
+        text-align: left;
+        font-size: 2rem;
+      }
+    }
+
+    &__desc {
+      font-size: 1rem;
+      text-align: center;
+      color: $gray;
+      margin-bottom: 50px;
+
+      @include breakpoint(smallScreen) {
+        text-align: left;
+      }
+    }
+
+    &__wrapper {
+      width: 100%;
+
+      .owl-carousel {
+        .owl-stage-outer {
+          .owl-stage {
+            .owl-item {
+              .item {
+                .top-pro-box {
+                  border: 1px solid $lightGray;
+                  border-radius: 10px;
+                  margin-bottom: 30px;
+                  padding: 30px;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+
+                  .top-pro-box-image-box {
+                    width: 90px;
+                    height: 90px;
+                    overflow: hidden;
+                    border-radius: 50%;
+                    margin-bottom: 15px;
+
+                    .top-pro-box-image {
+                      width: 100%;
+                      height: 100%;
+                      object-fit: cover;
+                    }
+                  }
+
+                  .top-pro-box-title {
+                    font-size: 1.125rem;
+                    font-weight: 400;
+                    margin-bottom: 5px;
+                  }
+
+                  .top-pro-box-address {
+                    font-size: 0.9rem;
+                    color: $gray;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    margin-bottom: 25px;
+
+                    &::before {
+                      content: "";
+                      background-image: url("../assets/pin.png");
+                      background-position: center;
+                      background-size: contain;
+                      background-repeat: no-repeat;
+                      width: 18px;
+                      height: 18px;
+                    }
+                  }
+
+                  .top-pro-box-btn {
+                    width: 100%;
+                    padding: 15px 35px;
+                    border: none;
+                    border-radius: 8px;
+                    background-color: $lightBlue;
+                    font-size: 1rem;
+                    color: $blue;
+                    cursor: pointer;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .owl-dots {
+          .owl-dot span {
+            background: #bfc8cb;
+            width: 8px;
+            height: 8px;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            margin-right: 5px;
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+
+          .active span {
+            background: $darkGray;
+            width: 20px;
+          }
+        }
+      }
+    }
+  }
+}

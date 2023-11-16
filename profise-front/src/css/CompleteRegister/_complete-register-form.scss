@@ -1,0 +1,449 @@
+.complete-register-form {
+  width: 100%;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &__title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+
+      @include breakpoint(largeScreen) {
+        font-size: 2rem;
+      }
+    }
+
+    &__upload-profile-image-container {
+      width: 100%;
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      @include breakpoint(smallScreen) {
+        flex-direction: row;
+        align-items: center;
+        gap: 28px;
+      }
+
+      &__upload-button-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        &__input {
+          display: none;
+        }
+
+        &__profile-image {
+          width: 120px;
+          height: 120px;
+          object-fit: cover;
+          object-position: center;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+
+        &__label {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          cursor: pointer;
+          height: 120px;
+          width: 120px;
+          border-radius: 5px;
+          color: #1b2032;
+          font-size: 0.9rem;
+          border: 2px dashed $gray;
+
+          .upload-arrow-up {
+            color: #9fa9b8;
+            font-size: 1.25rem;
+            margin-bottom: 5px;
+          }
+        }
+
+        .error-message {
+          color: rgb(243, 50, 50);
+          font-size: 0.8rem;
+        }
+      }
+
+      &__upload-text-box {
+        margin-top: 20px;
+
+        @include breakpoint(smallScreen) {
+          margin-top: 0;
+        }
+
+        &__upload-text {
+          font-size: 0.9rem;
+          line-height: 24px;
+          font-weight: 400;
+          color: #696969;
+        }
+      }
+    }
+
+    &__label {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 15px;
+
+      .half-input {
+        width: 100%;
+
+        @include breakpoint(smallScreen) {
+          width: 50%;
+        }
+      }
+
+      &__textarea {
+        padding: 16px;
+        height: 150px;
+        border: 1px solid #f0f5f7;
+        background-color: #f0f5f7;
+        border-radius: 8px;
+        font-size: 1rem;
+        color: $gray;
+        outline: none;
+        transition: background 0.2s ease-in, border 0.2s ease-in,
+          filter 0.3s ease;
+        resize: none;
+
+        &:focus {
+          border: 1px solid $blue;
+          background-color: $white;
+        }
+
+        &:disabled {
+          filter: brightness(80%);
+          cursor: default;
+        }
+      }
+
+      &__input {
+        padding: 16px;
+        height: 60px;
+        border: 1px solid #f0f5f7;
+        background-color: #f0f5f7;
+        border-radius: 8px;
+        font-size: 1rem;
+        color: $gray;
+        outline: none;
+        transition: background 0.2s ease-in, border 0.2s ease-in,
+          filter 0.3s ease;
+
+        &:focus {
+          border: 1px solid $blue;
+          background-color: $white;
+        }
+
+        &:disabled {
+          filter: brightness(80%);
+          cursor: default;
+        }
+      }
+
+      .error-message {
+        color: rgb(243, 50, 50);
+        font-size: 0.8rem;
+      }
+    }
+
+    &__password-wrapper {
+      width: 100%;
+      display: grid;
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: 1fr;
+      gap: 20px;
+
+      @include breakpoint(smallScreen) {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include breakpoint(largeScreen) {
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      &__label {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 15px;
+
+        &__input {
+          padding: 16px;
+          height: 60px;
+          border: 1px solid #f0f5f7;
+          background-color: #f0f5f7;
+          border-radius: 8px;
+          font-size: 1rem;
+          color: $gray;
+          outline: none;
+          transition: background 0.2s ease-in, border 0.2s ease-in,
+            filter 0.3s ease;
+
+          &:focus {
+            border: 1px solid $blue;
+            background-color: $white;
+          }
+
+          &:disabled {
+            filter: brightness(80%);
+            cursor: default;
+          }
+        }
+
+        .required {
+          font-size: 1rem;
+          font-weight: 500;
+
+          .required-sign {
+            color: rgb(243, 50, 50);
+          }
+        }
+
+        .error-message {
+          color: rgb(243, 50, 50);
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    &__categories-wrapper {
+      width: 100%;
+      display: grid;
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: 1fr;
+      gap: 20px;
+
+      @include breakpoint(smallScreen) {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include breakpoint(largeScreen) {
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      &__label {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 15px;
+
+        &__input {
+          padding: 16px;
+          height: 60px;
+          border: 1px solid #f0f5f7;
+          background-color: #f0f5f7;
+          border-radius: 8px;
+          font-size: 1rem;
+          color: $gray;
+          outline: none;
+          transition: background 0.2s ease-in, border 0.2s ease-in,
+            filter 0.3s ease;
+
+          &:focus {
+            border: 1px solid $blue;
+            background-color: $white;
+          }
+
+          &:disabled {
+            filter: brightness(80%);
+            cursor: default;
+          }
+        }
+
+        .required {
+          font-size: 1rem;
+          font-weight: 500;
+
+          .required-sign {
+            color: rgb(243, 50, 50);
+          }
+        }
+
+        .error-message {
+          color: rgb(243, 50, 50);
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    &__three-inputs-wrapper {
+      width: 100%;
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: 1fr;
+      gap: 20px;
+
+      @include breakpoint(smallScreen) {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include breakpoint(largeScreen) {
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      &__label {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-size: 1rem;
+        font-weight: 500;
+        margin-bottom: 15px;
+
+        &__input {
+          padding: 16px;
+          height: 60px;
+          border: 1px solid #f0f5f7;
+          background-color: #f0f5f7;
+          border-radius: 8px;
+          font-size: 1rem;
+          color: $gray;
+          outline: none;
+          transition: background 0.2s ease-in, border 0.2s ease-in,
+            filter 0.3s ease;
+
+          &:focus {
+            border: 1px solid $blue;
+            background-color: $white;
+          }
+
+          &:disabled {
+            filter: brightness(80%);
+            cursor: default;
+          }
+        }
+
+        .required {
+          font-size: 1rem;
+          font-weight: 500;
+
+          .required-sign {
+            color: rgb(243, 50, 50);
+          }
+        }
+
+        .error-message {
+          color: rgb(243, 50, 50);
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    &__two-inputs-wrapper {
+      width: 100%;
+      display: grid;
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: 1fr;
+      gap: 20px;
+
+      @include breakpoint(smallScreen) {
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include breakpoint(largeScreen) {
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      &__label {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-size: 1rem;
+        font-weight: 500;
+        margin-bottom: 15px;
+
+        @include breakpoint(largeScreen) {
+          &:last-child {
+            grid-column: 2 / 4;
+          }
+        }
+
+        &__input {
+          padding: 16px;
+          height: 60px;
+          border: 1px solid #f0f5f7;
+          background-color: #f0f5f7;
+          border-radius: 8px;
+          font-size: 1rem;
+          color: $gray;
+          outline: none;
+          transition: background 0.2s ease-in, border 0.2s ease-in,
+            filter 0.3s ease;
+
+          &:focus {
+            border: 1px solid $blue;
+            background-color: $white;
+          }
+
+          &:disabled {
+            filter: brightness(80%);
+            cursor: default;
+          }
+        }
+
+        .required {
+          font-size: 1rem;
+          font-weight: 500;
+
+          .required-sign {
+            color: rgb(243, 50, 50);
+          }
+        }
+
+        .error-message {
+          color: rgb(243, 50, 50);
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    &__save-btn {
+      width: 100%;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 8px;
+      background-color: $blue;
+      font-size: 1rem;
+      color: $white;
+      outline: none;
+      cursor: pointer;
+      transition: background 0.4s ease;
+      margin-top: 20px;
+
+      &:disabled {
+        background-color: $darkBlue;
+        cursor: not-allowed;
+      }
+
+      @include breakpoint(smallScreen) {
+        width: fit-content;
+      }
+
+      @include breakpoint(largeScreen) {
+        &:hover {
+          background-color: $darkBlue;
+        }
+      }
+    }
+  }
+}

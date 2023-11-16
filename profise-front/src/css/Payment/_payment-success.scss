@@ -1,0 +1,110 @@
+.payment-success-container {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  @include breakpoint(tablet) {
+    padding-top: 200px;
+    padding-bottom: 200px;
+  }
+
+  .payment-success-check-box {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #e8f0fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    i {
+      font-size: 2rem;
+      color: $blue;
+    }
+  }
+
+  .payment-success-title {
+    color: $darkGray;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+
+  .payment-success-desc {
+    color: $gray;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .payment-success-details-box {
+    padding: 40px;
+    border-radius: 8px;
+    background-color: $veryLightBlue;
+    width: 100%;
+    max-width: 750px;
+    gap: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 100px;
+
+    @include breakpoint(tablet) {
+      flex-direction: row;
+    }
+
+    .payment-success-details-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+
+      @include breakpoint(tablet) {
+        align-items: flex-start;
+      }
+
+      .payment-success-details-header {
+        color: #696969;
+        font-size: 0.9rem;
+      }
+
+      .payment-success-details-info {
+        color: $darkGray;
+        font-size: 1.125rem;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .payment-success-back-button {
+    width: 100%;
+    background-color: $blue;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 35px;
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.4s ease;
+
+    &:hover {
+      background-color: $darkBlue;
+    }
+
+    @include breakpoint(tablet) {
+      width: fit-content;
+    }
+  }
+}

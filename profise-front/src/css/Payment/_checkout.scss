@@ -1,0 +1,333 @@
+.checkout {
+  width: 100%;
+  padding-top: 65px;
+  padding-bottom: 50px;
+
+  @include breakpoint(tablet) {
+    padding-top: 95px;
+  }
+
+  @include breakpoint(smallScreen) {
+    padding-top: 103px;
+  }
+
+  .checkout-header {
+    width: 100%;
+    padding: 25px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f7fc;
+
+    .header-title {
+      font-size: 2rem;
+      font-weight: 500;
+      color: $darkGray;
+    }
+  }
+
+  .checkout-body {
+    width: 100%;
+    padding-top: 50px;
+
+    .checkout-form {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+
+      @include breakpoint(smallScreen) {
+        flex-direction: row;
+      }
+
+      .checkout-form-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        @include breakpoint(smallScreen) {
+          flex-grow: 2;
+          width: auto;
+        }
+
+        .form-title {
+          font-size: 1.25rem;
+          font-weight: 500;
+          color: $darkGray;
+          margin-bottom: 10px;
+        }
+
+        .dual-input-wrapper {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          gap: 15px;
+
+          @include breakpoint(tablet) {
+            flex-direction: row;
+          }
+
+          .input-wrapper {
+            flex-basis: auto;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            .label {
+              font-size: 1rem;
+              color: $darkGray;
+            }
+
+            .input {
+              width: 100%;
+              height: 60px;
+              padding: 15px 20px;
+              font-size: 1rem;
+              color: $gray;
+              background-color: #f0f5f7;
+              border: 1px solid #f0f5f7;
+              border-radius: 8px;
+              outline: none;
+              transition: background 0.3s ease, border 0.3s ease;
+
+              &:focus {
+                border-color: $blue;
+                background: #fff;
+              }
+
+              &:disabled {
+                filter: brightness(80%);
+                cursor: default;
+              }
+            }
+
+            .error-message {
+              color: rgb(243, 50, 50);
+              font-size: 0.8rem;
+            }
+          }
+        }
+
+        .input-wrapper {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+
+          .label {
+            font-size: 1rem;
+            color: $darkGray;
+          }
+
+          .input {
+            width: 100%;
+            height: 60px;
+            padding: 15px 20px;
+            font-size: 1rem;
+            color: $gray;
+            background-color: #f0f5f7;
+            border: 1px solid #f0f5f7;
+            border-radius: 8px;
+            outline: none;
+            transition: background 0.3s ease, border 0.3s ease;
+
+            &:focus {
+              border-color: $blue;
+              background: #fff;
+            }
+
+            &:disabled {
+              filter: brightness(80%);
+              cursor: default;
+            }
+          }
+
+          .error-message {
+            color: rgb(243, 50, 50);
+            font-size: 0.8rem;
+          }
+        }
+      }
+
+      .resume-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        @include breakpoint(smallScreen) {
+          flex-grow: 1;
+          width: auto;
+          min-width: 315px;
+        }
+
+        .resume-box {
+          width: 100%;
+          background-color: #f5f7fc;
+          border-radius: 8px;
+          padding: 30px;
+
+          .resume-box-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: $darkGray;
+            margin-bottom: 25px;
+          }
+
+          .top-label-wrapper {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 10px;
+            border-bottom: 1px solid $lightGray;
+            margin-bottom: 15px;
+
+            .product-label,
+            .value-label {
+              font-size: 1.125rem;
+              font-weight: 500;
+              color: $darkGray;
+            }
+          }
+
+          .products-wrapper {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 15px;
+
+            .product {
+              font-size: 1rem;
+              font-weight: 500;
+              color: $gray;
+            }
+
+            .value {
+              font-size: 1rem;
+              color: $gray;
+            }
+          }
+
+          .total-wrapper {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 10px;
+            border-top: 1px solid $lightGray;
+
+            .total,
+            .total-value {
+              font-size: 1.125rem;
+              font-weight: 500;
+              color: $darkGray;
+            }
+          }
+        }
+
+        .payment-method-box {
+          width: 100%;
+          background-color: #f5f7fc;
+          border-radius: 8px;
+          padding: 30px;
+          display: flex;
+          flex-direction: column;
+          gap: 25px;
+
+          .payment-method-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            .payment-method {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              gap: 15px;
+
+              .payment-method-radio {
+                display: none;
+              }
+
+              input[type="radio"]:checked + .payment-method-label:before {
+                border-color: $blue;
+              }
+
+              input[type="radio"]:checked + .payment-method-label:after {
+                background-color: $blue;
+                opacity: 1;
+              }
+
+              .payment-method-label {
+                position: relative;
+                display: block;
+                padding-left: 30px;
+                font-weight: 500;
+                font-size: 1rem;
+                color: $darkGray;
+                text-transform: capitalize;
+                cursor: pointer;
+
+                &:before {
+                  position: absolute;
+                  left: 0;
+                  top: 2px;
+                  height: 16px;
+                  width: 16px;
+                  background: #fff;
+                  content: "";
+                  border: 1px solid #ecedf2;
+                  border-radius: 50px;
+                  transition: border 0.3s ease;
+                }
+
+                &:after {
+                  position: absolute;
+                  content: "";
+                  left: 4px;
+                  top: 6px;
+                  height: 10px;
+                  width: 10px;
+                  border-radius: 5px;
+                  overflow: hidden;
+                  background: transparent;
+                  text-align: center;
+                }
+              }
+            }
+          }
+
+          .submit-btn {
+            width: 100%;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            background-color: $blue;
+            font-size: 1rem;
+            color: $white;
+            outline: none;
+            cursor: pointer;
+            transition: background 0.4s ease;
+            margin-top: 20px;
+
+            &:disabled {
+              background-color: $darkBlue;
+              cursor: default;
+            }
+
+            @include breakpoint(largeScreen) {
+              &:hover {
+                background-color: $darkBlue;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

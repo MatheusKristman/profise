@@ -1,0 +1,161 @@
+.contact-buy-confirmation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(32, 33, 36, 0.5);
+  overflow: auto;
+  padding: 40px;
+  opacity: 0;
+  z-index: 6;
+  animation: ResultFadeIn 0.4s ease forwards;
+
+  &::before {
+    content: "";
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .box {
+    background-color: $white;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    vertical-align: middle;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 60px 20px 20px 20px;
+    border-radius: 8px;
+    z-index: 7;
+
+    @include breakpoint(tablet) {
+      padding: 60px 40px 40px 40px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      border: none;
+      background: #f0f5f7;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      i {
+        margin-top: 3px;
+      }
+
+      &:disabled {
+        pointer-events: none;
+      }
+    }
+
+    .info-wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      .title {
+        font-size: 1.7rem;
+        width: 100%;
+        text-align: center;
+        font-weight: 500;
+        color: $darkGray;
+      }
+
+      .coins {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        color: $darkGray;
+
+        span {
+          font-size: 1rem;
+          font-weight: 400;
+        }
+      }
+
+      .btn-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        @include breakpoint(tablet) {
+          flex-direction: row;
+        }
+
+        .buy-btn {
+          width: 100%;
+          background-color: $blue;
+          border: none;
+          border-radius: 8px;
+          padding: 15px 30px;
+          color: $white;
+          font-size: 1rem;
+          cursor: pointer;
+          outline: none;
+          transition: background 0.4s ease, border 0.4s ease;
+
+          &:hover {
+            background-color: $darkBlue;
+          }
+
+          &:disabled {
+            background-color: $darkBlue;
+            pointer-events: none;
+          }
+
+          @include breakpoint(tablet) {
+            flex-basis: 100%;
+            width: fit-content;
+          }
+        }
+
+        .cancel-btn {
+          width: 100%;
+          background-color: #d4e1f6;
+          border: none;
+          border-radius: 8px;
+          padding: 15px 30px;
+          color: $blue;
+          font-size: 1rem;
+          cursor: pointer;
+          outline: none;
+          transition: background 0.4s ease, color 0.4s ease, filter 0.4s ease;
+
+          &:hover {
+            background-color: $blue;
+            color: white;
+          }
+
+          &:disabled {
+            filter: brightness(80%);
+            pointer-events: none;
+          }
+
+          @include breakpoint(tablet) {
+            flex-basis: 100%;
+            width: fit-content;
+          }
+        }
+      }
+    }
+  }
+}

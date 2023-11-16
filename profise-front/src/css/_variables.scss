@@ -1,0 +1,35 @@
+// font
+
+$jost: 'Jost', sans-serif;
+
+// color
+
+$blue: #1967d2;
+$darkBlue: #0146A6;
+$lightBlue: #E2EAF8;
+$veryLightBlue: #F5F7FC;
+$gray: #5c6770;
+$lightGray: #e6e8ed;
+$darkGray: #202124;
+$white: #ffffff;
+$darkPurple: #2f2d51;
+$lightGreen: #e4f0ed;
+$lightYellow: #f9ab0026;
+$yellow: #f9ab00;
+
+// breakpoints 
+
+$breakpoints: (
+  tablet: 500px,
+  smallScreen: 768px,
+  largeScreen: 1024px,
+  extraLargeScreen: 1200px,
+);
+
+@mixin breakpoint($size) {
+  $breakpoint-value: map-get($breakpoints, $size);
+
+  @media screen and (min-width: $breakpoint-value) {
+    @content;
+  }
+}

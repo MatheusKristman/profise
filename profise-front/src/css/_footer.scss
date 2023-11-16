@@ -1,0 +1,227 @@
+.footer {
+  background-color: $veryLightBlue;
+  padding-top: 80px;
+  padding-bottom: 50px;
+  width: 100%;
+
+  &__container {
+    width: 100%;
+
+    &__up {
+      width: 100%;
+
+      &__box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding-bottom: 80px;
+
+        @include breakpoint(smallScreen) {
+          align-items: flex-start;
+        }
+
+        @include breakpoint(largeScreen) {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+        &__logo-contact-box {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          margin-bottom: 50px;
+
+          @include breakpoint(smallScreen) {
+            align-items: flex-start;
+          }
+
+          @include breakpoint(largeScreen) {
+            max-width: 250px;
+          }
+
+          .footer-logo-box {
+            width: 150px;
+            margin-bottom: 20px;
+
+            &__image {
+              width: 100%;
+              height: auto;
+            }
+          }
+
+          .footer-contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            @include breakpoint(smallScreen) {
+              align-items: flex-start;
+            }
+
+            &__contact {
+              font-size: 1.125rem;
+              font-weight: 500;
+              display: flex;
+              align-items: center;
+              color: $darkPurple;
+
+              i {
+                margin-left: 5px;
+                font-size: 1.5rem;
+              }
+            }
+
+            &__tel {
+              color: $blue;
+              font-size: 1.125rem;
+              text-decoration: none;
+              font-weight: 500;
+              margin-bottom: 25px;
+              display: block;
+            }
+
+            &__address {
+              font-size: 1rem;
+              margin-bottom: 10px;
+              color: $gray;
+            }
+
+            &__email {
+              font-size: 1rem;
+              color: $gray;
+            }
+          }
+        }
+
+        &__footer-links-container {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 50px;
+
+          @include breakpoint(smallScreen) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            align-items: flex-start;
+          }
+
+          @include breakpoint(largeScreen) {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            gap: 100px;
+            max-width: 700px;
+          }
+
+          .footer-links-box {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            @include breakpoint(smallScreen) {
+              align-items: flex-start;
+            }
+
+            @include breakpoint(largeScreen) {
+              max-width: none;
+            }
+
+            &__title {
+              font-size: 1.125rem;
+              font-weight: 500;
+              margin-bottom: 25px;
+              color: $darkPurple;
+            }
+
+            &__list {
+              list-style: none;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 10px;
+
+              @include breakpoint(smallScreen) {
+                align-items: flex-start;
+              }
+
+              &__item {
+                @include breakpoint(largeScreen) {
+                  transition: all 0.3s ease;
+                  display: flex;
+                  align-items: center;
+
+                  &::before {
+                    content: "";
+                    background-color: $blue;
+                    height: 2px;
+                    width: 0px;
+                    transition: all 0.3s ease;
+                  }
+
+                  &__link {
+                    transition: color 0.3s ease;
+                  }
+
+                  &:hover {
+                    gap: 5px;
+
+                    a {
+                      color: $blue;
+                    }
+
+                    &::before {
+                      content: "";
+                      width: 15px;
+                      transition: all 0.3s ease;
+                    }
+                  }
+                }
+
+                &__link {
+                  color: $gray;
+                  text-decoration: none;
+                  font-size: 1rem;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__down {
+      width: 100%;
+      border-top: 1px solid $lightGray;
+      padding-top: 50px;
+
+      &__box {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 25px;
+        width: 100%;
+
+        @include breakpoint(tablet) {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+        .footer-copyright-box {
+          display: flex;
+          justify-content: center;
+
+          &__text {
+            font-size: 1rem;
+            color: $gray;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

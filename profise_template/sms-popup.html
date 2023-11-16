@@ -1,0 +1,85 @@
+<div class="model">
+    <!-- Login modal -->
+    <div id="sms-modal">
+         <!-- Login Form -->
+        <div class="sms-form default-form">
+            <div class="form-inner">
+                <h3>Confirmação de telefone</h3>
+                <!--Login Form-->
+                <form method="post" class="sms-login">
+                    {% csrf_token %}
+                    <div class="formulario confirmacao steps">
+                        <div class="row">
+                            <div class="col-lg-12 centro">
+                                <p>Enviamos um código de verificação para <b class="numero"></b></p>
+                            </div>
+                            <div class="col-lg-12 centro">
+                                <div class="form-group">
+                                    <input type="text" name="code" placeholder="Digite o código">
+                                </div>
+                                <div class="novamente">
+                                    <span class="desabilitado">Enviar SMS novamente <span class="contagem">(40)</span></span>
+                                </div>
+                                <div class="buttons">
+                                    <button type="button" class="theme-btn btn-style-one">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--End Login Form -->
+    </div>
+    <!-- End Login Module -->
+        <script type="text/javascript">
+            // Mostra o número
+            
+            var numero = $("input[name='telefone']").val();
+            $("b.numero").html(numero);
+            
+            // Contador para enviar o código novamente
+            
+            var segundos = 10;
+            var el = $('.contagem');
+            
+            function diminuiSegundos() {
+                
+                if(segundos == 1) {
+                    
+                    el.html("");
+                    $(".novamente span").removeClass("desabilitado");
+                    $(".novamente span").addClass("habilitado");
+                    
+                }
+                
+                else {
+                
+                    segundos -= 1;
+                    el.html("(" + segundos + ")");
+                
+                }
+            }
+            
+            function enviaNovamente() {
+                
+                el.html("(40)");
+                $(".novamente span").removeClass("habilitado");
+                $(".novamente span").addClass("desabilitado");
+                segundos = 40;
+                
+            }
+            
+            $(".novamente span").click(function() {
+                
+                if(segundos == 1) {
+                    
+                   enviaNovamente();
+                    
+                }
+                
+            });
+            
+            var cancel = setInterval(diminuiSegundos, 1000);
+        </script>
+</div>

@@ -1,0 +1,70 @@
+.order-success-container {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  @include breakpoint(tablet) {
+    padding-top: 200px;
+    padding-bottom: 200px;
+  }
+
+  .order-success-check-box {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #e8f0fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    i {
+      font-size: 2rem;
+      color: $blue;
+    }
+  }
+
+  .order-success-title {
+    color: $darkGray;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+
+  .order-success-desc {
+    color: $gray;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .order-success-back-button {
+    width: 100%;
+    background-color: $blue;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 35px;
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.4s ease;
+
+    &:hover {
+      background-color: $darkBlue;
+    }
+
+    @include breakpoint(tablet) {
+      width: fit-content;
+    }
+  }
+}

@@ -1,0 +1,331 @@
+.new-orders {
+  width: 100%;
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 50px;
+
+    @include breakpoint(smallScreen) {
+      font-size: 2rem;
+    }
+  }
+
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include breakpoint(smallScreen) {
+      flex-direction: row;
+    }
+
+    &__filter-box {
+      background-color: $white;
+      border-radius: 10px;
+      padding: 40px 20px;
+      width: 100%;
+      box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
+
+      @include breakpoint(tablet) {
+        padding: 40px 30px;
+      }
+
+      @include breakpoint(smallScreen) {
+        width: calc(30% - 12.5px);
+        height: fit-content;
+      }
+
+      &__container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        &__location-label {
+          font-size: 1.125rem;
+          font-weight: 500;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: 12px;
+            top: 51px;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-image: url("../../assets/pin.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+
+          &__input {
+            padding: 0 16px 0 40px;
+            height: 60px;
+            border: 1px solid $lightGray;
+            border-radius: 10px;
+            background-color: $white;
+            font-size: 1rem;
+            font-family: $jost;
+            color: $gray;
+            outline: none;
+            cursor: default;
+            user-select: none;
+          }
+        }
+
+        &__distance-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          &__distance-label {
+            font-size: 1.125rem;
+            font-weight: 500;
+          }
+
+          &__distance-input {
+            appearance: none;
+            width: 100%;
+            height: 5px;
+            background-color: #d4e1f6;
+            border-radius: 30px;
+
+            &::-webkit-slider-thumb {
+              appearance: none;
+              width: 17px;
+              height: 17px;
+              background-color: $white;
+              border: 2px solid $blue;
+              border-radius: 50%;
+              cursor: pointer;
+            }
+          }
+
+          &__distance-value {
+            width: fit-content;
+            padding: 7px 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            text-align: center;
+            color: $blue;
+            background-color: #d4e1f6;
+            margin: 15px auto 0 auto;
+          }
+
+          &__distance-btn {
+            width: 100%;
+            padding: 15px 30px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: $blue;
+            font-size: 1rem;
+            font-family: $jost;
+            color: $white;
+            outline: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            @include breakpoint(largeScreen) {
+              transition: background 0.4s ease;
+
+              &:hover {
+                background-color: $darkBlue;
+              }
+            }
+
+            &:active {
+              filter: brightness(70%);
+            }
+          }
+        }
+      }
+    }
+
+    &__result-box {
+      width: 100%;
+      background-color: $white;
+      border-radius: 10px;
+      padding: 40px 20px;
+      box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
+
+      @include breakpoint(tablet) {
+        padding: 40px 30px;
+      }
+
+      @include breakpoint(smallScreen) {
+        width: calc(70% - 12.5px);
+      }
+
+      &__container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        &__upper {
+          width: 100%;
+
+          &__orders-showing-text {
+            font-size: 1rem;
+
+            strong {
+              font-weight: 600;
+            }
+          }
+        }
+
+        &__bottom {
+          display: flex;
+          flex-direction: column;
+          gap: 25px;
+          width: 100%;
+
+          &__result {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            border: 1px solid $lightGray;
+            border-radius: 10px;
+            padding: 40px 20px;
+
+            @include breakpoint(largeScreen) {
+              flex-direction: row;
+              align-items: flex-end;
+              justify-content: space-between;
+              padding: 25px;
+            }
+
+            &__info {
+              width: 100%;
+
+              @include breakpoint(largeScreen) {
+                width: 60%;
+              }
+
+              @include breakpoint(extraLargeScreen) {
+                width: 80%;
+              }
+
+              &__name {
+                font-size: 1.25rem;
+                font-weight: 500;
+                margin-bottom: 10px;
+              }
+
+              &__city {
+                font-size: 1rem;
+                color: $gray;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                margin-bottom: 10px;
+
+                &::before {
+                  content: "";
+                  background-image: url("../../assets/pin.png");
+                  background-size: contain;
+                  background-repeat: no-repeat;
+                  background-position: center;
+                  display: block;
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+
+              &__desc {
+                font-size: 1rem;
+                line-height: 25px;
+                margin-bottom: 10px;
+              }
+            }
+
+            &__detail-wrapper {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-end;
+              align-items: center;
+              gap: 15px;
+
+              @include breakpoint(tablet) {
+                flex-direction: row;
+              }
+
+              @include breakpoint(largeScreen) {
+                width: 50%;
+              }
+
+              &__contact-buyed {
+                width: 100%;
+                border: 1px solid $blue;
+                padding: 13px;
+                border-radius: 8px;
+                color: $blue;
+                cursor: default;
+                user-select: none;
+                text-align: center;
+
+                @include breakpoint(smallScreen) {
+                  width: fit-content;
+                }
+              }
+
+              &__detail-btn {
+                background-color: #d4e1f6;
+                border: none;
+                border-radius: 8px;
+                width: 100%;
+                padding: 15px 30px;
+                font-size: 1rem;
+                color: $blue;
+                text-align: center;
+                outline: none;
+                cursor: pointer;
+
+                @include breakpoint(largeScreen) {
+                  width: fit-content;
+                  transition: background 0.4s ease, color 0.4s ease;
+
+                  &:hover {
+                    background-color: $blue;
+                    color: $white;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes ResultFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ResultFadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

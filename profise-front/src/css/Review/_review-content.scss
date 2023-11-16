@@ -1,0 +1,166 @@
+.review-container {
+  padding-top: 65px;
+  width: 100%;
+
+  @include breakpoint(tablet) {
+    padding-top: 73px;
+  }
+
+  @include breakpoint(smallScreen) {
+    padding-top: 95px;
+  }
+
+  @include breakpoint(largeScreen) {
+    padding-top: 103px;
+  }
+
+  .review-wrapper {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include breakpoint(tablet) {
+      padding-left: 60px;
+      padding-right: 60px;
+    }
+
+    @include breakpoint(smallScreen) {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+
+    .review-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-align: center;
+      width: 100%;
+      color: $darkGray;
+      margin-bottom: 15px;
+
+      @include breakpoint(tablet) {
+        font-size: 2rem;
+      }
+    }
+
+    .review-desc {
+      font-size: 1rem;
+      color: $gray;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .professional-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .professional-image-box {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 15px;
+
+        .professional-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+
+      .professional-name {
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: $darkGray;
+        margin-bottom: 10px;
+
+        @include breakpoint(tablet) {
+          font-size: 1.5rem;
+        }
+      }
+
+      .professional-category {
+        font-size: 1rem;
+        color: $gray;
+        margin-bottom: 15px;
+      }
+
+      .rate-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 35px;
+
+        .rate {
+          font-size: 1.25rem;
+          color: $blue;
+
+          @include breakpoint(smallScreen) {
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+
+            &:hover {
+              opacity: 0.7;
+            }
+          }
+        }
+      }
+
+      .review-comment-input {
+        width: 100%;
+        height: 150px;
+        padding: 10px;
+        background-color: #f0f5f7;
+        border: 1px solid #f0f5f7;
+        border-radius: 8px;
+        font-size: 1rem;
+        color: $gray;
+        resize: none;
+        outline: none;
+        transition: border 0.3s ease, background 0.3s ease;
+        margin-bottom: 25px;
+
+        &:focus {
+          border-color: $blue;
+          background-color: white;
+        }
+      }
+
+      .review-send-btn {
+        width: 100%;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 8px;
+        background-color: $blue;
+        font-size: 1rem;
+        color: $white;
+        outline: none;
+        cursor: pointer;
+        transition: background 0.4s ease;
+
+        &:disabled {
+          background-color: $darkBlue;
+          cursor: default;
+        }
+
+        @include breakpoint(smallScreen) {
+          width: fit-content;
+          align-self: flex-start;
+        }
+
+        @include breakpoint(largeScreen) {
+          &:hover {
+            background-color: $darkBlue;
+          }
+        }
+      }
+    }
+  }
+}

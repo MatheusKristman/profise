@@ -1,0 +1,110 @@
+.buyed-orders-container {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid $lightGray;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .requester-name {
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: $darkGray;
+    }
+
+    .details-wrapper {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+
+      .details-category {
+        font-size: 1rem;
+        color: $blue;
+      }
+
+      .details-location {
+        font-size: 1rem;
+        color: $gray;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        position: relative;
+
+        &::before {
+          content: "";
+          background-image: url("../../assets/pin.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          display: block;
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    .subcategory-wrapper {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+
+      .subcategory {
+        background-color: #f0f5f7;
+        border-radius: 30px;
+        padding: 5px 15px;
+        color: $gray;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+
+    @include breakpoint(tablet) {
+      flex-direction: row;
+    }
+
+    .see-more-btn,
+    .concluded-btn {
+      width: 30px;
+      height: 30px;
+      border: none;
+      border-radius: 8px;
+      background-color: #f0f5f7;
+      color: $blue;
+      cursor: pointer;
+      transition: width 0.4s ease;
+
+      @include breakpoint(largeScreen) {
+        transition: background-color 0.4s ease;
+
+        &:hover {
+          background-color: #e4e9eb;
+        }
+      }
+    }
+
+    .concluded {
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 10px;
+      cursor: not-allowed;
+
+      &:hover {
+        background-color: #f0f5f7;
+      }
+    }
+  }
+}

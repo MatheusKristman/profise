@@ -1,0 +1,36 @@
+.brands {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  width: 100%;
+
+  @include breakpoint(smallScreen) {
+    padding-bottom: 100px;
+  }
+
+  @include breakpoint(largeScreen) {
+    padding-top: 0px;
+  }
+
+  .owl-carousel {
+    .owl-stage-outer {
+      .owl-stage {
+        .owl-item {
+          .item {
+            .item-link {
+              .item-image {
+                width: 100px;
+                margin: auto;
+                filter: grayscale(100%);
+                transition: filter 0.3s ease;
+
+                &:hover {
+                  filter: grayscale(0%);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

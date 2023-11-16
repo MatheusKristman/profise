@@ -1,0 +1,209 @@
+.buy-coins {
+  width: 100%;
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 50px;
+
+    @include breakpoint(smallScreen) {
+      font-size: 2rem;
+    }
+  }
+
+  &__container {
+    width: 100%;
+    background-color: $white;
+    border-radius: 10px;
+    padding: 30px 20px;
+
+    @include breakpoint(tablet) {
+      padding: 40px 30px;
+    }
+
+    &__balance {
+      font-size: 1.125rem;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 40px;
+
+      @include breakpoint(smallScreen) {
+        font-size: 1.25rem;
+      }
+    }
+
+    &__plan-wrapper {
+      width: 100%;      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+
+      @include breakpoint(smallScreen) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start
+      }
+
+      &__plan-box {
+        width: 100%;
+        border: 1px solid $lightGray;
+        border-radius: 10px;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        order: 2;
+
+        @include breakpoint(largeScreen) {
+          transition: border-color 0.4s ease;
+
+          &:hover {
+            border-color: $blue;
+          }
+        }
+
+        @include breakpoint(extraLargeScreen) {
+          padding: 40px 30px;
+        }
+
+        &__name {
+          font-size: 1.125rem;
+          font-weight: 500;
+          color: $blue;
+          margin-bottom: 15px;
+
+          i {
+            font-size: 0.9rem;
+          }
+        }
+
+        &__price {
+          font-size: 1.125rem;
+          margin-bottom: 50px;
+
+          strong {
+            font-size: 1.5rem;
+            font-weight: 500;
+          }
+        }
+
+        &__benefits {
+          font-size: 0.9rem;
+          color: $gray;
+          margin-bottom: 20px;
+
+          &:last-of-type {
+            margin-bottom: 50px;
+          }
+
+          i {
+            font-size: 1.125rem;
+            margin-right: 5px;
+          }
+        }
+
+        &__buy-btn {
+          background-color: #E2EAF8;
+          border: none;
+          border-radius: 8px;
+          color: $blue;
+          padding: 15px 30px;
+          font-size: 1rem;
+          text-align: center;
+          cursor: pointer;
+          outline: none;
+
+          @include breakpoint(largeScreen) {
+            transition: background 0.4s ease, color 0.4s ease;
+
+            &:hover {
+              background-color: $blue;
+              color: $white;
+            }
+          }
+        }
+      }
+
+      .recommended {
+        order: 1;
+        background-color: $blue;
+        position: relative;
+        border: 1px solid $blue;
+
+        @include breakpoint(smallScreen) {
+          order: 2;
+        }
+
+        @include breakpoint(largeScreen) {
+          transition: transform 0.4s ease;
+
+          &:hover {
+            transform: scale(1.02)
+          }
+        }
+
+        .recommended-tag {
+          position: absolute;
+          top: 25px;
+          right: 25px;
+          background-color: $white;
+          border-radius: 30px;
+          color: $blue;
+          padding: 5px 15px;
+          font-size: 0.9rem;
+          transform: translateY(-5px);
+
+          @include breakpoint(smallScreen) {
+            opacity: 0;
+          }
+
+          @include breakpoint(largeScreen) {
+            opacity: 1;
+          }
+
+          @include breakpoint(extraLargeScreen) {
+            top: 40px;
+            right: 30px;
+            transform: translateY(-2px);
+          }
+        }
+
+        span {
+          color: $lightGray;
+
+          &:first-child {
+            color: $white;
+          }
+
+          &:nth-child(3) {
+            color: $white;
+          }
+        }
+
+        strong {
+          color: $white;
+        }
+
+        button {
+          background-color: $white;
+
+          @include breakpoint(largeScreen) {
+            transition: background 0.4s ease, color 0.4s ease;
+
+            &:hover {
+              background-color: $darkBlue;
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+
+    &__tip {
+      margin-top: 50px;
+      display: block;
+      font-size: 1rem;
+      line-height: 25px;
+    }
+  }
+}

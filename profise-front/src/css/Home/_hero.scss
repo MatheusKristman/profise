@@ -1,0 +1,358 @@
+.hero {
+  width: 100%;
+  background-color: $lightGreen;
+  display: flex;
+  align-items: center;
+  min-height: 600px;
+  max-height: 900px;
+  padding-top: 100px;
+  padding-bottom: 50px;
+
+  @include breakpoint(tablet) {
+    height: 100vh;
+  }
+
+  @include breakpoint(largeScreen) {
+    background-color: transparent;
+    background-image: url("../assets/icons/bg-3.png");
+    background-size: 100% 100%;
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint(largeScreen) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 100px;
+    }
+
+    &__infos {
+      width: 100%;
+
+      &__title {
+        width: 100%;
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: 30px;
+        color: $darkGray;
+        margin-bottom: 10px;
+
+        @include breakpoint(tablet) {
+          font-size: 2.5rem;
+          line-height: 50px;
+          max-width: 500px;
+        }
+
+        @include breakpoint(largeScreen) {
+          font-size: 3rem;
+          max-width: 620px;
+          line-height: 60px;
+        }
+      }
+
+      &__desc {
+        font-size: 0.9rem;
+        opacity: 0.7;
+        line-height: 25px;
+        margin-bottom: 30px;
+
+        @include breakpoint(largeScreen) {
+          font-size: 1rem;
+          margin-bottom: 35px;
+        }
+      }
+
+      &__input-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: $white;
+        padding: 20px;
+        margin-bottom: 25px;
+        position: relative;
+
+        @include breakpoint(smallScreen) {
+          flex-direction: row;
+          align-items: center;
+        }
+
+        @include breakpoint(largeScreen) {
+          max-width: 600px;
+        }
+
+        .input-box {
+          width: 100%;
+          display: grid;
+          grid-template-columns: 90% 10%;
+          align-items: center;
+          margin-bottom: 10px;
+
+          @include breakpoint(smallScreen) {
+            margin-bottom: 0;
+            border-right: 1px solid rgb(214, 214, 214);
+            margin-right: 30px;
+            height: 63px;
+          }
+
+          .input {
+            padding: 10px 0 10px 0;
+            font-size: 1.125rem;
+            border: none;
+            background-color: transparent;
+            outline: none;
+            color: $gray;
+          }
+
+          .error {
+            &::placeholder {
+              color: rgb(243, 50, 50);
+            }
+          }
+
+          .input-icon {
+            font-size: 1.4rem;
+            opacity: 0.5;
+          }
+        }
+
+        .search-suggestion {
+          width: 100%;
+          max-height: 150px;
+          position: absolute;
+          bottom: 100%;
+          left: 0;
+          background-color: $lightGray;
+          z-index: 1;
+          list-style: none;
+          display: none;
+          flex-direction: column;
+          gap: 5px;
+          overflow-y: auto;
+
+          @include breakpoint(smallScreen) {
+            bottom: auto;
+            top: 100%;
+          }
+
+          &__item {
+            width: 100%;
+            height: 43px;
+            display: flex;
+            align-items: center;
+            padding: 0px 20px;
+            cursor: pointer;
+            color: $gray;
+            font-size: 1rem;
+
+            &:focus {
+              filter: brightness(90%);
+            }
+
+            @include breakpoint(smallScreen) {
+              padding: 15px 20px;
+            }
+          }
+        }
+
+        .input-btn {
+          padding: 20px;
+          font-size: 1rem;
+          background-color: $blue;
+          color: $white;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background 0.4s ease, filter 0.4s ease;
+
+          &:disabled {
+            filter: brightness(70%);
+            cursor: not-allowed;
+          }
+
+          @include breakpoint(largeScreen) {
+            padding: 20px 35px;
+
+            &:hover {
+              background-color: $darkBlue;
+            }
+          }
+        }
+      }
+
+      &__related-search {
+        font-size: 0.9rem;
+        opacity: 0.7;
+
+        @include breakpoint(largeScreen) {
+          font-size: 1rem;
+        }
+
+        strong {
+          opacity: 0.8;
+          margin-right: 20px;
+        }
+      }
+    }
+
+    &__images {
+      display: none;
+
+      @include breakpoint(extraLargeScreen) {
+        display: block;
+        width: 100%;
+        min-height: 70vh;
+        max-width: 680px;
+        position: relative;
+
+        &__content {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+          transform: translateX(-120px);
+
+          .budget-box {
+            position: absolute;
+            top: 50px;
+            background-color: $white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: 350px;
+            border-radius: 10px;
+
+            .budget-image {
+              min-width: 50px;
+              width: 50px;
+              min-height: 50px;
+              height: 50px;
+              padding: 13px;
+              background-color: $lightYellow;
+              border-radius: 10px;
+
+              .email-icon {
+                width: 100%;
+                height: auto;
+                color: $yellow;
+              }
+            }
+
+            .budget-info {
+              .budget-text {
+                font-weight: 500;
+              }
+            }
+          }
+
+          .prof-box {
+            background-color: $white;
+            padding: 35px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            position: absolute;
+            bottom: 25px;
+            left: 220px;
+            border-radius: 10px;
+
+            .prof-info {
+              .prof-text {
+                font-weight: 500;
+              }
+            }
+
+            .prof-images {
+              list-style: none;
+              display: flex;
+              align-items: center;
+
+              .prof-item {
+                border-radius: 50%;
+                border: 2px solid $white;
+                width: 50px;
+                height: 50px;
+                margin-left: -15px;
+
+                &:first-child {
+                  margin-left: 0;
+                }
+
+                &:last-child {
+                  background-color: $lightBlue;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                }
+
+                .prof-image {
+                  width: 100%;
+                  height: 100%;
+                }
+
+                .prof-plus {
+                  font-size: 0.9rem;
+                }
+              }
+            }
+          }
+        }
+
+        &__photos {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          gap: 35px;
+          align-items: center;
+          z-index: 1;
+
+          .photo-1 {
+            height: 70%;
+            background-image: url("../assets/banner-inicial-1.webp");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            grid-column: 1 / 2;
+            grid-row: 1 / 3;
+            border-radius: 10px;
+          }
+
+          .photo-2 {
+            height: 100%;
+            background-image: url("../assets/banner-inicial-2.webp");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+            border-radius: 10px;
+          }
+
+          .photo-3 {
+            height: 100%;
+            background-image: url("../assets/banner-inicial-3.webp");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+  }
+}

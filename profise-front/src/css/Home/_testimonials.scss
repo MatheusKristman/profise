@@ -1,0 +1,186 @@
+.testimonial {
+  width: 100%;
+  padding-bottom: 100px;
+  padding-top: 50px;
+  position: relative;
+  z-index: 2;
+
+  @include breakpoint(smallScreen) {
+    padding-bottom: 200px;
+    padding-top: 100px;
+  }
+
+  &__container {
+    width: 100%;
+    position: relative;
+    z-index: 3;
+    overflow-x: hidden;
+
+    &__image-left-box {
+      position: absolute;
+      right: 50%;
+      top: 0;
+      width: 40%;
+      margin-right: 410px;
+
+      @include breakpoint(extraLargeScreen) {
+        width: auto;
+      }
+
+      &__image-left {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &__image-right-box {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: 410px;
+      width: 40%;
+
+      @include breakpoint(extraLargeScreen) {
+        width: auto;
+      }
+
+      &__image-right {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &__title {
+      font-size: 1.7rem;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 15px;
+
+      @include breakpoint(smallScreen) {
+        font-size: 2rem;
+      }
+    }
+
+    &__desc {
+      font-size: 1rem;
+      text-align: center;
+      color: $gray;
+      margin: 0 auto 50px auto;
+      max-width: 690px;
+    }
+
+    &__carousel {
+      width: 100%;
+      max-width: 560px;
+      margin: auto;
+
+      .owl-carousel {
+        .owl-stage-outer {
+          .owl-stage {
+            .owl-item {
+              .item {
+                .testimonial-box {
+                  width: 100%;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  margin-bottom: 50px;
+
+                  &__image-box {
+                    width: 120px;
+                    height: 120px;
+                    border: 1px solid $lightGray;
+                    background-color: $white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    margin-bottom: 25px;
+                    position: relative;
+
+                    &::before {
+                      content: "";
+                      background-image: url("../assets/quote-icon.png");
+                      background-position: center;
+                      background-size: contain;
+                      background-repeat: no-repeat;
+                      position: absolute;
+                      top: 0;
+                      left: -40px;
+                      width: 34px;
+                      height: 26px;
+                    }
+
+                    &__image {
+                      width: 118px;
+                      height: 118px;
+                      border-radius: 50%;
+                      border: 10px solid $white;
+                      object-fit: cover;
+                      object-position: center;
+                    }
+                  }
+
+                  &__opinion-title {
+                    font-size: 1.125rem;
+                    font-weight: 400;
+                    color: $blue;
+                    margin-bottom: 15px;
+                  }
+
+                  &__opinion-desc {
+                    font-size: 1rem;
+                    text-align: center;
+                    color: $gray;
+                    line-height: 26px;
+                    margin-bottom: 25px;
+                  }
+
+                  &__name {
+                    font-size: 1.125rem;
+                    font-weight: 500;
+                    text-align: center;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .owl-dots {
+          .owl-dot span {
+            background: #bfc8cb;
+            width: 8px;
+            height: 8px;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            margin-right: 5px;
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+
+          .active span {
+            background: $darkGray;
+            width: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/testimonial-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    z-index: 1;
+  }
+}

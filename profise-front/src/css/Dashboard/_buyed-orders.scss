@@ -1,0 +1,111 @@
+.buyed-orders {
+  width: 100%;
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 50px;
+
+    @include breakpoint(smallScreen) {
+      font-size: 2rem;
+    }
+  }
+
+  .container {
+    width: 100%;
+    background-color: $white;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
+
+    &__header {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      padding-bottom: 25px;
+
+      &__filter-btn {
+        background-color: #f0f5f7;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 15px 20px;
+        position: relative;
+        cursor: pointer;
+
+        @include breakpoint(largeScreen) {
+          transition: background 0.4s ease;
+          width: 190px;
+
+          &:hover {
+            background-color: #e4e9eb;
+          }
+        }
+
+        &__value {
+          font-size: 0.9rem;
+          font-weight: 500;
+          color: $gray;
+          pointer-events: none;
+        }
+
+        &__btn {
+          background-color: transparent;
+          border: none;
+          color: $gray;
+          pointer-events: none;
+          transition: transform 0.3s ease;
+        }
+
+        .btn-open {
+          transform: rotateX(180deg);
+        }
+
+        &__options-box {
+          position: absolute;
+          top: 90%;
+          left: 0;
+          list-style: none;
+          background-color: #f0f5f7;
+          width: 100%;
+          border-radius: 0 0 10px 10px;
+          animation: filterOn 0.4s ease forwards;
+          z-index: 5;
+
+          &__option {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: $gray;
+            padding: 10px 20px;
+            cursor: pointer;
+
+            @include breakpoint(largeScreen) {
+              transition: background 0.4s ease;
+
+              &:hover {
+                background-color: #e4e9eb;
+              }
+            }
+          }
+        }
+
+        .options-box-desactive {
+          pointer-events: none;
+        }
+      }
+    }
+
+    .body {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      gap: 25px;
+
+      @include breakpoint(largeScreen) {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+}
