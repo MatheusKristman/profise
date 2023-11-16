@@ -1,6 +1,5 @@
 {
   "name": "profise-front",
-  "proxy": "http://www.profise.com.br/api/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
