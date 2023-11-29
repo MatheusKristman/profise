@@ -15,32 +15,24 @@ const OrderBox = ({ order, setOrderSelected, setIsModalOpen }) => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://viacep.com.br/ws/${order.requesterLocation.cep.replace(
-          "-",
-          ""
-        )}/json/`
-      )
+      .get(`https://viacep.com.br/ws/${order.requesterLocation.cep.replace("-", "")}/json/`)
       .then((res) => {
         setCity(res.data.uf);
         setState(res.data.localidade);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
 
-        toast.error(
-          "Ocorreu um erro durante a busca do cep, tente novamente mais tarde",
-          {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          }
-        );
+        toast.error("Ocorreu um erro durante a busca do cep, tente novamente mais tarde", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       });
   }, []);
 
@@ -64,20 +56,14 @@ const OrderBox = ({ order, setOrderSelected, setIsModalOpen }) => {
           {order.requestAnswers.slice(0, 3).map((item, index) =>
             index !== order.requestAnswers.length - 1 ? (
               <span key={item.question} className="subcategory">
-                {typeof item.answer === "object"
-                  ? item.answer.join("/")
-                  : item.answer}
+                {typeof item.answer === "object" ? item.answer.join("/") : item.answer}
               </span>
             ) : null
           )}
         </div>
       </div>
 
-      <button
-        onClick={() => handleResultSelected(order)}
-        type="button"
-        className="see-more-btn"
-      >
+      <button onClick={() => handleResultSelected(order)} type="button" className="see-more-btn">
         Ver mais
       </button>
     </div>

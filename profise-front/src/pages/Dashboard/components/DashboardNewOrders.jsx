@@ -40,7 +40,7 @@ function DashboardNewOrders() {
           setOrderData(res.data);
         })
         .catch((error) => {
-          console.log(error);
+          console.error(error);
 
           toast.error(error.response.data.message, {
             position: "top-center",
@@ -92,10 +92,7 @@ function DashboardNewOrders() {
             filter={filter}
           />
           {isModalOpen && (
-            <ResultModal
-              orderSelected={orderSelected}
-              setIsModalOpen={setIsModalOpen}
-            />
+            <ResultModal orderSelected={orderSelected} setIsModalOpen={setIsModalOpen} />
           )}
         </div>
       </div>

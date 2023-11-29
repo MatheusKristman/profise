@@ -34,7 +34,7 @@ function DashboardGeneral() {
           setOrderData(res.data);
         })
         .catch((error) => {
-          console.log(error);
+          console.error(error);
 
           toast.error(error.response.data.message, {
             position: "top-center",
@@ -55,9 +55,7 @@ function DashboardGeneral() {
           }, 1000);
         });
 
-      const orders = user.ordersBuyed.filter((order) =>
-        order.hasOwnProperty("orderReview")
-      );
+      const orders = user.ordersBuyed.filter((order) => order.hasOwnProperty("orderReview"));
       let rateSum = 0;
 
       for (let i = 0; i < orders.length; i++) {
@@ -131,12 +129,7 @@ function DashboardGeneral() {
         setOrderSelected={setOrderSelected}
         setIsModalOpen={setIsModalOpen}
       />
-      {isModalOpen && (
-        <ResultModal
-          orderSelected={orderSelected}
-          setIsModalOpen={setIsModalOpen}
-        />
-      )}
+      {isModalOpen && <ResultModal orderSelected={orderSelected} setIsModalOpen={setIsModalOpen} />}
       {isLoading && <Loading isLoadingAnimation={isLoadingAnimation} />}
     </div>
   );

@@ -18,8 +18,6 @@ function useIsUserLogged() {
   useEffect(() => {
     const token = localStorage.getItem("userToken") || null;
 
-    console.log(token);
-
     if (token) {
       api
         .get("/professional/user-confirmation", {

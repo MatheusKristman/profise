@@ -8,13 +8,7 @@ import useAccountStore from "../../../../stores/useAccountStore";
 
 import "react-tooltip/dist/react-tooltip.css";
 
-const BuyedOrderBox = ({
-  order,
-  setOrderSelected,
-  setIsModalOpen,
-  isLoading,
-  setIsLoading,
-}) => {
+const BuyedOrderBox = ({ order, setOrderSelected, setIsModalOpen, isLoading, setIsLoading }) => {
   const [isLoadingModal, setIsLoadingModal] = useState(false);
 
   const { user, setUser } = useAccountStore();
@@ -34,7 +28,7 @@ const BuyedOrderBox = ({
         setIsModalOpen(true);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
 
         toast.error(
           "Ocorreu um erro durante a visualização dos detalhes do pedido, tente novamente mais tarde",
@@ -88,9 +82,7 @@ const BuyedOrderBox = ({
           {order.requestAnswers.slice(0, 3).map((item, index) =>
             index !== order.requestAnswers.length - 1 ? (
               <span key={item.question} className="subcategory">
-                {typeof item.answer === "object"
-                  ? item.answer.join("/")
-                  : item.answer}
+                {typeof item.answer === "object" ? item.answer.join("/") : item.answer}
               </span>
             ) : null
           )}

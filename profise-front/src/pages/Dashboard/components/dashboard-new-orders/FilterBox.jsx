@@ -5,14 +5,7 @@ import useAccountStore from "../../../../stores/useAccountStore";
 import api from "../../../../services/api";
 
 /* eslint-disable react/prop-types */
-function FilterBox({
-  filter,
-  setFilter,
-  city,
-  state,
-  setOrderData,
-  setIsLoading,
-}) {
+function FilterBox({ filter, setFilter, city, state, setOrderData, setIsLoading }) {
   const [actualFilter, setActualFilter] = useState(filter);
   const [filterChanged, setFilterChanged] = useState(false);
 
@@ -44,7 +37,7 @@ function FilterBox({
         setOrderData(res.data);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
 
         toast.error(error.response.data.message, {
           position: "top-center",

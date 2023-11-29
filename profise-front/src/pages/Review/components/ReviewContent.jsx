@@ -38,7 +38,7 @@ function ReviewContent({ setIsLoading, setIsAnimationActive }) {
         .then((res) => {
           setProfessional(res.data);
         })
-        .catch((error) => console.log(error))
+        .catch((error) => console.error(error))
         .finally(() => {
           setIsAnimationActive(false);
 
@@ -53,22 +53,16 @@ function ReviewContent({ setIsLoading, setIsAnimationActive }) {
     let url = "";
 
     if (professional.profileImage) {
-      if (
-        JSON.stringify(import.meta.env.MODE) === JSON.stringify("development")
-      ) {
-        url = `${import.meta.env.VITE_API_KEY_DEV}${
-          import.meta.env.VITE_API_PORT
-        }/profile-image/${professional.profileImage}`;
-      } else {
-        url = `${import.meta.env.VITE_API_KEY}/profile-image/${
+      if (JSON.stringify(import.meta.env.MODE) === JSON.stringify("development")) {
+        url = `${import.meta.env.VITE_API_KEY_DEV}${import.meta.env.VITE_API_PORT}/profile-image/${
           professional.profileImage
         }`;
+      } else {
+        url = `${import.meta.env.VITE_API_KEY}/profile-image/${professional.profileImage}`;
       }
     } else {
       url = null;
     }
-
-    console.log(url);
 
     setProfileImageUrl(url);
   }, [professional]);
@@ -100,7 +94,7 @@ function ReviewContent({ setIsLoading, setIsAnimationActive }) {
         }
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
 
         toast.error(error.response.data.message, {
           position: "top-center",
@@ -122,9 +116,8 @@ function ReviewContent({ setIsLoading, setIsAnimationActive }) {
         <h3 className="review-title">Compartilhe Sua Experiência</h3>
 
         <p className="review-desc">
-          Avalie o profissional que atendeu você e ajude-nos a manter a
-          excelência no Profise. Sua voz é importante, e sua avaliação é valiosa
-          para nós e para a comunidade.
+          Avalie o profissional que atendeu você e ajude-nos a manter a excelência no Profise. Sua
+          voz é importante, e sua avaliação é valiosa para nós e para a comunidade.
         </p>
 
         {Object.keys(professional).length !== 0 && (
@@ -135,7 +128,7 @@ function ReviewContent({ setIsLoading, setIsAnimationActive }) {
                 alt="Profissional"
                 className="professional-image"
                 onError={(event) => {
-                  event.target.src = profilePlaceholder;
+                  event.target.src = image.profilePlaceholder;
                 }}
               />
             </div>

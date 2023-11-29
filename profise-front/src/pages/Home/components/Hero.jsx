@@ -84,20 +84,14 @@ function Hero() {
           }
         })
         .catch((error) => {
-          console.log(error);
+          console.error(error);
           setCategoryExists(false);
         });
     } else {
       setCategoryResult([]);
       setCategoryExists(false);
     }
-  }, [
-    inputValue,
-    setResultSearch,
-    setErrorSearch,
-    setCategoryResult,
-    setCategoryExists,
-  ]);
+  }, [inputValue, setResultSearch, setErrorSearch, setCategoryResult, setCategoryExists]);
 
   useEffect(() => {
     if (window.innerWidth >= 1200) {
@@ -172,8 +166,7 @@ function Hero() {
             Ajudamos você a encontrar o melhor profissional!
           </h1>
           <p className="hero__container__infos__desc">
-            Nos conte qual trabalho você precisa para encontrarmos o melhor
-            profissional para você.
+            Nos conte qual trabalho você precisa para encontrarmos o melhor profissional para você.
           </p>
           <div className="hero__container__infos__input-wrapper">
             <div className="input-box">
@@ -213,9 +206,7 @@ function Hero() {
                   </li>
                 ))
               ) : (
-                <li className="search-suggestion__item">
-                  Faça sua pesquisa...
-                </li>
+                <li className="search-suggestion__item">Faça sua pesquisa...</li>
               )}
             </ul>
 
@@ -230,8 +221,8 @@ function Hero() {
           </div>
 
           <p className="hero__container__infos__related-search">
-            <strong>Pesquisas Populares :</strong> Pintor, Pedreiro, Diarista,
-            Eletricista, Marceneiro, Carreto, Arquiteto
+            <strong>Pesquisas Populares :</strong> Pintor, Pedreiro, Diarista, Eletricista,
+            Marceneiro, Carreto, Arquiteto
           </p>
         </div>
 
@@ -242,9 +233,7 @@ function Hero() {
                 <img src={images.email} alt="email" className="email-icon" />
               </div>
               <div className="budget-info">
-                <p className="budget-text">
-                  Pedido de orçamento enviado pelo cliente
-                </p>
+                <p className="budget-text">Pedido de orçamento enviado pelo cliente</p>
               </div>
             </div>
 
@@ -254,32 +243,16 @@ function Hero() {
               </div>
               <ul className="prof-images">
                 <li className="prof-item">
-                  <img
-                    src={images.pro1}
-                    alt="profissional"
-                    className="prof-image"
-                  />
+                  <img src={images.pro1} alt="profissional" className="prof-image" />
                 </li>
                 <li className="prof-item">
-                  <img
-                    src={images.pro2}
-                    alt="profissional"
-                    className="prof-image"
-                  />
+                  <img src={images.pro2} alt="profissional" className="prof-image" />
                 </li>
                 <li className="prof-item">
-                  <img
-                    src={images.pro3}
-                    alt="profissional"
-                    className="prof-image"
-                  />
+                  <img src={images.pro3} alt="profissional" className="prof-image" />
                 </li>
                 <li className="prof-item">
-                  <img
-                    src={images.pro4}
-                    alt="profissional"
-                    className="prof-image"
-                  />
+                  <img src={images.pro4} alt="profissional" className="prof-image" />
                 </li>
                 <li className="prof-item">
                   <i className="fa-solid fa-plus prof-plus" />
