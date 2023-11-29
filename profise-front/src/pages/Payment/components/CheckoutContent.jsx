@@ -219,7 +219,10 @@ export default function CheckoutContent() {
         <h2 className="header-title">Resumo da Compra</h2>
       </div>
       <div className="checkout-body">
-        <form className="checkout-form wrapper" onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className="checkout-form wrapper"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div className="checkout-form-wrapper">
             <h3 className="form-title">Confirme as informações abaixo</h3>
             <div className="dual-input-wrapper">
@@ -238,7 +241,9 @@ export default function CheckoutContent() {
                   autoCorrect="off"
                   style={errors.name ? { borderColor: "rgb(243, 50, 50)" } : {}}
                 />
-                {errors.name && <span className="error-message">{errors.name?.message}</span>}
+                {errors.name && (
+                  <span className="error-message">{errors.name?.message}</span>
+                )}
               </div>
               <div className="input-wrapper">
                 <label className="label" htmlFor="lastName">
@@ -253,10 +258,14 @@ export default function CheckoutContent() {
                   name="lastName"
                   autoComplete="off"
                   autoCorrect="off"
-                  style={errors.lastName ? { borderColor: "rgb(243, 50, 50)" } : {}}
+                  style={
+                    errors.lastName ? { borderColor: "rgb(243, 50, 50)" } : {}
+                  }
                 />
                 {errors.lastName && (
-                  <span className="error-message">{errors.lastName?.message}</span>
+                  <span className="error-message">
+                    {errors.lastName?.message}
+                  </span>
                 )}
               </div>
             </div>
@@ -273,9 +282,13 @@ export default function CheckoutContent() {
                 name="company"
                 autoComplete="off"
                 autoCorrect="off"
-                style={errors.company ? { borderColor: "rgb(243, 50, 50)" } : {}}
+                style={
+                  errors.company ? { borderColor: "rgb(243, 50, 50)" } : {}
+                }
               />
-              {errors.company && <span className="error-message">{errors.company?.message}</span>}
+              {errors.company && (
+                <span className="error-message">{errors.company?.message}</span>
+              )}
             </div>
             <div className="dual-input-wrapper">
               <div className="input-wrapper">
@@ -295,7 +308,9 @@ export default function CheckoutContent() {
                   onChange={handleCepChange}
                   style={errors.cep ? { borderColor: "rgb(243, 50, 50)" } : {}}
                 />
-                {errors.cep && <span className="error-message">{errors.cep?.message}</span>}
+                {errors.cep && (
+                  <span className="error-message">{errors.cep?.message}</span>
+                )}
               </div>
               <div className="input-wrapper">
                 <label className="label" htmlFor="tel">
@@ -314,7 +329,9 @@ export default function CheckoutContent() {
                   onChange={handleCel}
                   style={errors.tel ? { borderColor: "rgb(243, 50, 50)" } : {}}
                 />
-                {errors.tel && <span className="error-message">{errors.tel?.message}</span>}
+                {errors.tel && (
+                  <span className="error-message">{errors.tel?.message}</span>
+                )}
               </div>
             </div>
             <div className="dual-input-wrapper">
@@ -333,7 +350,9 @@ export default function CheckoutContent() {
                   autoCorrect="off"
                   style={errors.city ? { borderColor: "rgb(243, 50, 50)" } : {}}
                 />
-                {errors.city && <span className="error-message">{errors.city?.message}</span>}
+                {errors.city && (
+                  <span className="error-message">{errors.city?.message}</span>
+                )}
               </div>
               <div className="input-wrapper">
                 <label className="label" htmlFor="state">
@@ -348,9 +367,13 @@ export default function CheckoutContent() {
                   name="state"
                   autoComplete="off"
                   autoCorrect="off"
-                  style={errors.state ? { borderColor: "rgb(243, 50, 50)" } : {}}
+                  style={
+                    errors.state ? { borderColor: "rgb(243, 50, 50)" } : {}
+                  }
                 />
-                {errors.state && <span className="error-message">{errors.state?.message}</span>}
+                {errors.state && (
+                  <span className="error-message">{errors.state?.message}</span>
+                )}
               </div>
             </div>
             <div className="dual-input-wrapper">
@@ -367,9 +390,15 @@ export default function CheckoutContent() {
                   name="address"
                   autoComplete="off"
                   autoCorrect="off"
-                  style={errors.address ? { borderColor: "rgb(243, 50, 50)" } : {}}
+                  style={
+                    errors.address ? { borderColor: "rgb(243, 50, 50)" } : {}
+                  }
                 />
-                {errors.address && <span className="error-message">{errors.address?.message}</span>}
+                {errors.address && (
+                  <span className="error-message">
+                    {errors.address?.message}
+                  </span>
+                )}
               </div>
               <div className="input-wrapper">
                 <label className="label" htmlFor="addressNumber">
@@ -384,10 +413,16 @@ export default function CheckoutContent() {
                   name="addressNumber"
                   autoComplete="off"
                   autoCorrect="off"
-                  style={errors.addressNumber ? { borderColor: "rgb(243, 50, 50)" } : {}}
+                  style={
+                    errors.addressNumber
+                      ? { borderColor: "rgb(243, 50, 50)" }
+                      : {}
+                  }
                 />
                 {errors.addressNumber && (
-                  <span className="error-message">{errors.addressNumber?.message}</span>
+                  <span className="error-message">
+                    {errors.addressNumber?.message}
+                  </span>
                 )}
               </div>
             </div>
@@ -406,7 +441,9 @@ export default function CheckoutContent() {
                 autoCorrect="off"
                 style={errors.email ? { borderColor: "rgb(243, 50, 50)" } : {}}
               />
-              {errors.email && <span className="error-message">{errors.email?.message}</span>}
+              {errors.email && (
+                <span className="error-message">{errors.email?.message}</span>
+              )}
             </div>
           </div>
           <div className="resume-wrapper">
@@ -462,7 +499,11 @@ export default function CheckoutContent() {
                   </label>
                 </div>
               </div>
-              <button className="submit-btn" disabled={isFetching || isSubmitting} type="submit">
+              <button
+                className="submit-btn"
+                disabled={isFetching || isSubmitting}
+                type="submit"
+              >
                 Comprar
               </button>
             </div>

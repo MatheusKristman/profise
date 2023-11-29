@@ -96,7 +96,11 @@ function LoginModal() {
   return (
     <div ref={loginModalRef} className="login-modal-overlay">
       <div className="login-modal-overlay__box">
-        <button type="button" onClick={closeModal} className="login-modal-overlay__box__close-btn">
+        <button
+          type="button"
+          onClick={closeModal}
+          className="login-modal-overlay__box__close-btn"
+        >
           <i className="fa-solid fa-xmark" />
         </button>
 
@@ -104,7 +108,10 @@ function LoginModal() {
           <h3 className="login-modal-title">Entre na sua conta</h3>
 
           <form onSubmit={handleSubmit(onSubmit)} className="login-modal-form">
-            <label htmlFor="username" className="login-modal-form__username-label">
+            <label
+              htmlFor="username"
+              className="login-modal-form__username-label"
+            >
               E-mail
               <input
                 {...register("email")}
@@ -117,9 +124,14 @@ function LoginModal() {
                 style={errors.email ? { borderColor: "rgb(243, 50, 50)" } : {}}
                 className="login-modal-form__username-label__input"
               />
-              {errors.email && <small className="error-message">{errors.email?.message}</small>}
+              {errors.email && (
+                <small className="error-message">{errors.email?.message}</small>
+              )}
             </label>
-            <label htmlFor="password" className="login-modal-form__password-label">
+            <label
+              htmlFor="password"
+              className="login-modal-form__password-label"
+            >
               Senha
               <input
                 {...register("password")}
@@ -129,11 +141,15 @@ function LoginModal() {
                 autoComplete="off"
                 autoCorrect="off"
                 disabled={isLoading}
-                style={errors.password ? { borderColor: "rgb(243, 50, 50)" } : {}}
+                style={
+                  errors.password ? { borderColor: "rgb(243, 50, 50)" } : {}
+                }
                 className="login-modal-form__password-label__input"
               />
               {errors.password && (
-                <small className="error-message">{errors.password?.message}</small>
+                <small className="error-message">
+                  {errors.password?.message}
+                </small>
               )}
             </label>
 
@@ -165,7 +181,11 @@ function LoginModal() {
               </button>
             </div>
 
-            <button type="submit" disabled={isLoading} className="login-modal-form__submit-btn">
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="login-modal-form__submit-btn"
+            >
               Entrar
             </button>
           </form>

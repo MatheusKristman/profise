@@ -30,8 +30,12 @@ export default function PaymentSuccessContent() {
         <i className="fa-solid fa-check payment-success-check" />
       </div>
 
-      <h1 className="payment-success-title">Seu Pagamento confirmado com sucesso!</h1>
-      <span className="payment-success-desc">Parabéns, suas moedas foram resgatadas</span>
+      <h1 className="payment-success-title">
+        Seu Pagamento confirmado com sucesso!
+      </h1>
+      <span className="payment-success-desc">
+        Parabéns, suas moedas foram resgatadas
+      </span>
 
       <div className="payment-success-details-box">
         <div className="payment-success-details-wrapper">
@@ -40,7 +44,9 @@ export default function PaymentSuccessContent() {
         </div>
 
         <div className="payment-success-details-wrapper">
-          <span className="payment-success-details-header">Data de pagamento</span>
+          <span className="payment-success-details-header">
+            Data de pagamento
+          </span>
           <span className="payment-success-details-info">{paymentDate}</span>
         </div>
 

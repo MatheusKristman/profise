@@ -10,8 +10,13 @@ import professionalRegisterSchema from "../../../schemas/professionalRegisterSch
 import api from "../../../services/api";
 
 function RegisterForm() {
-  const { setNameValue, setCelValue, setEmailValue, SMSTokenOpened, isSMSTokenOpen } =
-    useRegisterStore();
+  const {
+    setNameValue,
+    setCelValue,
+    setEmailValue,
+    SMSTokenOpened,
+    isSMSTokenOpen,
+  } = useRegisterStore();
 
   const Navigate = useNavigate();
 
@@ -76,7 +81,9 @@ function RegisterForm() {
           disabled={isSMSTokenOpen}
           placeholder="John Doe.."
         />
-        {errors.name && <small className="error-message">{errors.name?.message}</small>}
+        {errors.name && (
+          <small className="error-message">{errors.name?.message}</small>
+        )}
       </label>
 
       <label htmlFor="cel" className="register-form__cel-label">
@@ -93,7 +100,9 @@ function RegisterForm() {
           disabled={isSMSTokenOpen}
           placeholder="(00) 00000-0000"
         />
-        {errors.cel && <small className="error-message">{errors.cel?.message}</small>}
+        {errors.cel && (
+          <small className="error-message">{errors.cel?.message}</small>
+        )}
       </label>
 
       <label htmlFor="email" className="register-form__email-label">
@@ -108,10 +117,16 @@ function RegisterForm() {
           disabled={isSMSTokenOpen}
           placeholder="Ex: nome@email.com"
         />
-        {errors.email && <small className="error-message">{errors.email?.message}</small>}
+        {errors.email && (
+          <small className="error-message">{errors.email?.message}</small>
+        )}
       </label>
 
-      <button type="submit" disabled={isSMSTokenOpen} className="register-form__submit-btn">
+      <button
+        type="submit"
+        disabled={isSMSTokenOpen}
+        className="register-form__submit-btn"
+      >
         {isSMSTokenOpen ? "Enviando" : "Prosseguir"}
       </button>
     </form>

@@ -34,6 +34,7 @@ import document from "./document.png";
 import chat from "./chat.png";
 import bookmark from "./bookmark.png";
 import userPhoto from "./user-photo.png";
+import profilePlaceholder from "./profile-placeholder.jpg";
 import segment from "./segment.png";
 import pin from "./pin.png";
 import loadingAnimation from "./loading-animation.svg";
@@ -75,6 +76,7 @@ export default {
   chat,
   bookmark,
   userPhoto,
+  profilePlaceholder,
   segment,
   pin,
   loadingAnimation,

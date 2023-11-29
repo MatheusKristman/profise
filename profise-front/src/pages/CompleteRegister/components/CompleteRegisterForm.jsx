@@ -14,6 +14,7 @@ import useGeneralStore from "../../../stores/useGeneralStore";
 import useAccountStore from "../../../stores/useAccountStore";
 import useQuery from "../../../hooks/useQuery";
 import api from "../../../services/api";
+import image from "../../../assets";
 
 function CompleteRegisterForm() {
   const { setIsFetching, setIsNotFetching } = useGeneralStore((state) => ({
@@ -118,7 +119,9 @@ function CompleteRegisterForm() {
     if (categories.length > 0 && categoryValue !== "") {
       const subcategoriesArr = [];
 
-      const categorySelected = categories.filter((cat) => cat.category === categoryValue)[0];
+      const categorySelected = categories.filter(
+        (cat) => cat.category === categoryValue
+      )[0];
 
       categorySelected.subCategory.forEach((cat) => {
         subcategoriesArr.push(cat.category);
@@ -328,16 +331,19 @@ function CompleteRegisterForm() {
     const registeredState = getValues("state");
 
     if (registeredCity !== cepCity || registeredState !== cepState) {
-      toast.error("Endereço diferente do cep fornecido, verifique e tente novamente", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      toast.error(
+        "Endereço diferente do cep fornecido, verifique e tente novamente",
+        {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }
+      );
 
       setIsSubmitting(false);
       setIsLoading(false);
@@ -405,8 +411,13 @@ function CompleteRegisterForm() {
 
   return (
     <div className="complete-register-form">
-      <form onSubmit={handleSubmit(onSubmit)} className="complete-register-form__container">
-        <h3 className="complete-register-form__container__title">Dados e contato</h3>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="complete-register-form__container"
+      >
+        <h3 className="complete-register-form__container__title">
+          Dados e contato
+        </h3>
 
         <div className="complete-register-form__container__upload-profile-image-container">
           <div className="complete-register-form__container__upload-profile-image-container__upload-button-box">
@@ -429,6 +440,9 @@ function CompleteRegisterForm() {
                   src={profileImageUrl}
                   alt="Perfil"
                   className="complete-register-form__container__upload-profile-image-container__upload-button-box__profile-image"
+                  onError={(event) => {
+                    event.target.src = image.profilePlaceholder;
+                  }}
                 />
               ) : (
                 <>
@@ -439,18 +453,24 @@ function CompleteRegisterForm() {
             </label>
 
             {errors.profileImage && (
-              <small className="error-message">{errors.profileImage?.message}</small>
+              <small className="error-message">
+                {errors.profileImage?.message}
+              </small>
             )}
           </div>
 
           <div className="complete-register-form__container__upload-profile-image-container__upload-text-box">
             <span className="complete-register-form__container__upload-profile-image-container__upload-text-box__upload-text">
-              Tamanho maximo da imagem é 1MB, Dimensão mínima: 330x330 e nos formatos .jpg e .png
+              Tamanho maximo da imagem é 1MB, Dimensão mínima: 330x330 e nos
+              formatos .jpg e .png
             </span>
           </div>
         </div>
 
-        <label htmlFor="about_me" className="complete-register-form__container__label">
+        <label
+          htmlFor="about_me"
+          className="complete-register-form__container__label"
+        >
           Sobre mim
           <textarea
             {...register("aboutMe")}
@@ -462,10 +482,15 @@ function CompleteRegisterForm() {
             style={errors.aboutMe ? { borderColor: "rgb(243, 50, 50)" } : {}}
             className="complete-register-form__container__label__textarea half-input"
           />
-          {errors.aboutMe && <small className="error-message">{errors.aboutMe?.message}</small>}
+          {errors.aboutMe && (
+            <small className="error-message">{errors.aboutMe?.message}</small>
+          )}
         </label>
 
-        <label htmlFor="company" className="complete-register-form__container__label">
+        <label
+          htmlFor="company"
+          className="complete-register-form__container__label"
+        >
           Nome da Empresa
           <input
             {...register("company")}
@@ -479,7 +504,9 @@ function CompleteRegisterForm() {
             style={errors.company ? { borderColor: "rgb(243, 50, 50)" } : {}}
             className="complete-register-form__container__label__input half-input"
           />
-          {errors.company && <small className="error-message">{errors.company?.message}</small>}
+          {errors.company && (
+            <small className="error-message">{errors.company?.message}</small>
+          )}
         </label>
 
         <div className="complete-register-form__container__password-wrapper">
@@ -505,7 +532,11 @@ function CompleteRegisterForm() {
               className="complete-register-form__container__three-inputs-wrapper__label__input"
             />
 
-            {errors.password && <small className="error-message">{errors.password?.message}</small>}
+            {errors.password && (
+              <small className="error-message">
+                {errors.password?.message}
+              </small>
+            )}
           </label>
 
           <label
@@ -526,12 +557,18 @@ function CompleteRegisterForm() {
               autoComplete="off"
               autoCorrect="off"
               disabled={isLoading}
-              style={errors.confirmPassword ? { borderColor: "rgb(243, 50, 50)" } : {}}
+              style={
+                errors.confirmPassword
+                  ? { borderColor: "rgb(243, 50, 50)" }
+                  : {}
+              }
               className="complete-register-form__container__three-inputs-wrapper__label__input"
             />
 
             {errors.confirmPassword && (
-              <small className="error-message">{errors.confirmPassword?.message}</small>
+              <small className="error-message">
+                {errors.confirmPassword?.message}
+              </small>
             )}
           </label>
         </div>
@@ -558,7 +595,11 @@ function CompleteRegisterForm() {
                 <option key={category}>{category}</option>
               ))}
             </select>
-            {errors.category && <small className="error-message">{errors.category?.message}</small>}
+            {errors.category && (
+              <small className="error-message">
+                {errors.category?.message}
+              </small>
+            )}
           </label>
 
           <label
@@ -575,7 +616,9 @@ function CompleteRegisterForm() {
               name="subcategory"
               id="subcategory"
               disabled={isLoading}
-              style={errors.subcategory ? { borderColor: "rgb(243, 50, 50)" } : {}}
+              style={
+                errors.subcategory ? { borderColor: "rgb(243, 50, 50)" } : {}
+              }
             >
               <option>-- Subcategoria --</option>
               {subcategoryOptions.map((subcategory) => (
@@ -583,12 +626,16 @@ function CompleteRegisterForm() {
               ))}
             </select>
             {errors.subcategory && (
-              <small className="error-message">{errors.subcategory?.message}</small>
+              <small className="error-message">
+                {errors.subcategory?.message}
+              </small>
             )}
           </label>
         </div>
 
-        <h3 className="complete-register-form__container__title">Localização</h3>
+        <h3 className="complete-register-form__container__title">
+          Localização
+        </h3>
 
         <div className="complete-register-form__container__three-inputs-wrapper">
           <label
@@ -612,7 +659,9 @@ function CompleteRegisterForm() {
               onChange={handleCepChange}
               className="complete-register-form__container__three-inputs-wrapper__label__input"
             />
-            {errors.cep && <small className="error-message">{errors.cep?.message}</small>}
+            {errors.cep && (
+              <small className="error-message">{errors.cep?.message}</small>
+            )}
           </label>
 
           <label
@@ -638,7 +687,9 @@ function CompleteRegisterForm() {
                 </option>
               ))}
             </select>
-            {errors.state && <small className="error-message">{errors.state?.message}</small>}
+            {errors.state && (
+              <small className="error-message">{errors.state?.message}</small>
+            )}
           </label>
 
           <label
@@ -664,7 +715,9 @@ function CompleteRegisterForm() {
                 </option>
               ))}
             </select>
-            {errors.city && <small className="error-message">{errors.city?.message}</small>}
+            {errors.city && (
+              <small className="error-message">{errors.city?.message}</small>
+            )}
           </label>
         </div>
 
@@ -689,7 +742,11 @@ function CompleteRegisterForm() {
               style={errors.district ? { borderColor: "rgb(243, 50, 50)" } : {}}
               className="complete-register-form__container__two-inputs-wrapper__label__input"
             />
-            {errors.district && <small className="error-message">{errors.district?.message}</small>}
+            {errors.district && (
+              <small className="error-message">
+                {errors.district?.message}
+              </small>
+            )}
           </label>
 
           <label
@@ -712,7 +769,9 @@ function CompleteRegisterForm() {
               style={errors.address ? { borderColor: "rgb(243, 50, 50)" } : {}}
               className="complete-register-form__container__two-inputs-wrapper__label__input"
             />
-            {errors.address && <small className="error-message">{errors.address?.message}</small>}
+            {errors.address && (
+              <small className="error-message">{errors.address?.message}</small>
+            )}
           </label>
         </div>
 
@@ -734,11 +793,15 @@ function CompleteRegisterForm() {
               readOnly={false}
               maxLength={100}
               disabled={isLoading}
-              style={errors.addressNumber ? { borderColor: "rgb(243, 50, 50)" } : {}}
+              style={
+                errors.addressNumber ? { borderColor: "rgb(243, 50, 50)" } : {}
+              }
               className="complete-register-form__container__two-inputs-wrapper__label__input"
             />
             {errors.addressNumber && (
-              <small className="error-message">{errors.addressNumber?.message}</small>
+              <small className="error-message">
+                {errors.addressNumber?.message}
+              </small>
             )}
           </label>
 
@@ -756,11 +819,15 @@ function CompleteRegisterForm() {
               readOnly={false}
               maxLength={100}
               disabled={isLoading}
-              style={errors.complement ? { borderColor: "rgb(243, 50, 50)" } : {}}
+              style={
+                errors.complement ? { borderColor: "rgb(243, 50, 50)" } : {}
+              }
               className="complete-register-form__container__two-inputs-wrapper__label__input"
             />
             {errors.complement && (
-              <small className="error-message">{errors.complement?.message}</small>
+              <small className="error-message">
+                {errors.complement?.message}
+              </small>
             )}
           </label>
         </div>

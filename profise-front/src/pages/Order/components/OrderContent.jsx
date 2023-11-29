@@ -25,8 +25,13 @@ import Buttons from "./Buttons";
 function OrderContent({ setIsLoadingAnimationActive }) {
   const { slug } = useParams();
 
-  const { idCategorySelected, isLoading, setToLoad, setToNotLoad, resetOrderStore } =
-    useOrderStore();
+  const {
+    idCategorySelected,
+    isLoading,
+    setToLoad,
+    setToNotLoad,
+    resetOrderStore,
+  } = useOrderStore();
 
   const [categoryToFilter, setCategoryToFilter] = useState({});
   const [completeCategory, setCompleteCategory] = useState({});
@@ -315,7 +320,9 @@ function OrderContent({ setIsLoadingAnimationActive }) {
               ) : (
                 <FinalSteps
                   indexPage={indexPage}
-                  handleBackBtn={() => handleFinalFilterBackBtn(categoryToFilter.slug)}
+                  handleBackBtn={() =>
+                    handleFinalFilterBackBtn(categoryToFilter.slug)
+                  }
                   filterData={filterData}
                   setFilterData={setFilterData}
                   errorExists={errorExists}

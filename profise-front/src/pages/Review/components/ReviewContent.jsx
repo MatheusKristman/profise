@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import useQuery from "../../../hooks/useQuery";
 import api from "../../../services/api";
 import useIsUserLogged from "../../../hooks/useIsUserLogged";
+import image from "../../../assets";
 
 function ReviewContent({ setIsLoading, setIsAnimationActive }) {
   useIsUserLogged();
@@ -66,6 +67,8 @@ function ReviewContent({ setIsLoading, setIsAnimationActive }) {
     } else {
       url = null;
     }
+
+    console.log(url);
 
     setProfileImageUrl(url);
   }, [professional]);
@@ -131,6 +134,9 @@ function ReviewContent({ setIsLoading, setIsAnimationActive }) {
                 src={profileImageUrl}
                 alt="Profissional"
                 className="professional-image"
+                onError={(event) => {
+                  event.target.src = profilePlaceholder;
+                }}
               />
             </div>
 

@@ -150,17 +150,30 @@ function RegisterSMSToken() {
   }, [sendAgain, setSendAgainTimer, toDontSendAgain, celValue]);
 
   return (
-    <div ref={SMSTokenRef} onSubmit={confirmSMSCode} className="sms-token-overlay">
+    <div
+      ref={SMSTokenRef}
+      onSubmit={confirmSMSCode}
+      className="sms-token-overlay"
+    >
       <div className="sms-token-overlay__box">
-        <button type="button" onClick={closeModal} className="sms-token-overlay__box__close-btn">
+        <button
+          type="button"
+          onClick={closeModal}
+          className="sms-token-overlay__box__close-btn"
+        >
           <i className="fa-solid fa-xmark" />
         </button>
 
         <div className="sms-token-overlay__box__container">
-          <h3 className="sms-token-overlay__box__container__title">Confirmação de celefone</h3>
+          <h3 className="sms-token-overlay__box__container__title">
+            Confirmação de telefone
+          </h3>
 
           <form className="sms-token-overlay__box__container__form">
-            <label htmlFor="token" className="sms-token-overlay__box__container__form__token-label">
+            <label
+              htmlFor="token"
+              className="sms-token-overlay__box__container__form__token-label"
+            >
               {`Enviamos um código de verificação para ${celValue}`}
               <input
                 type="text"
@@ -185,7 +198,9 @@ function RegisterSMSToken() {
               }
               onClick={handleSendAgain}
             >
-              {`Enviar SMS novamente ${sendAgainTimer > 0 ? `(${sendAgainTimer})` : ""}`}
+              {`Enviar SMS novamente ${
+                sendAgainTimer > 0 ? `(${sendAgainTimer})` : ""
+              }`}
             </button>
 
             <button

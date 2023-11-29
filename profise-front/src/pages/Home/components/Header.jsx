@@ -211,9 +211,12 @@ function Header() {
           >
             <div className="header__container__user-box__image-box">
               <img
-                src={profileImageUrl || image.userPhoto}
+                src={profileImageUrl}
                 alt="Imagem do Usuário"
                 className="header__container__user-box__image-box__image"
+                onError={(event) => {
+                  event.target.src = image.profilePlaceholder;
+                }}
               />
             </div>
 
