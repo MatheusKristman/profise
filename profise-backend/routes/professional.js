@@ -11,6 +11,7 @@ const {
   requestPasswordChange,
   passwordRecovery,
   userAlreadyRegistered,
+  getReviewsFromCategory,
 } = require("../controllers/professionalController.js");
 const { auth } = require("../controllers/authController.js");
 const { sendOTP, verifyRegisterOTP } = require("../controllers/twilioController.js");
@@ -30,5 +31,6 @@ router.post("/password-recovery", passwordRecovery);
 router.put("/delete-buyed-order", deleteBuyedOrder);
 router.put("/change-password", changePassword);
 router.get("/user-confirmation", auth, getUser);
+router.get("/get-reviews-from-category", getReviewsFromCategory);
 
 module.exports = router;

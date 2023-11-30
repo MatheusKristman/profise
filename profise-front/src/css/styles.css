@@ -2754,42 +2754,61 @@ body {
     text-align: left;
   }
 }
+.review__container .owl-carousel .owl-stage-outer .owl-stage {
+  display: flex;
+}
+.review__container .owl-carousel .owl-stage-outer .owl-stage .owl-item {
+  flex: 1 0 auto;
+}
+.review__container .owl-carousel .owl-stage-outer .owl-stage .owl-item .item {
+  height: 100%;
+}
 .review__container .owl-carousel .owl-stage-outer .owl-stage .owl-item .item .review-box {
+  height: 100%;
   border: 1px solid #e6e8ed;
   border-radius: 8px;
   padding: 30px;
 }
 .review__container .owl-carousel .owl-stage-outer .owl-stage .owl-item .item .review-box__container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.review__container .owl-carousel .owl-stage-outer .owl-stage .owl-item .item .review-box__container__wrapper {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.review__container .owl-carousel .owl-stage-outer .owl-stage .owl-item .item .review-box__container__title {
+.review__container .owl-carousel .owl-stage-outer .owl-stage .owl-item .item .review-box__container__wrapper__title {
   font-size: 1.2rem;
   margin-bottom: 10px;
   text-align: center;
 }
-.review__container .owl-carousel .owl-stage-outer .owl-stage .owl-item .item .review-box__container__desc {
+.review__container .owl-carousel .owl-stage-outer .owl-stage .owl-item .item .review-box__container__wrapper__desc {
   font-size: 1rem;
   color: #5c6770;
   text-align: center;
   line-height: 30px;
-  margin-bottom: 20px;
 }
-.review__container .owl-carousel .owl-stage-outer .owl-stage .owl-item .item .review-box__container__rating {
+.review__container .owl-carousel .owl-stage-outer .owl-stage .owl-item .item .review-box__container__wrapper__rating {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  font-size: 0.8rem;
-  color: #1967d2;
+  gap: 10px;
+  font-size: 1.25rem;
   margin-bottom: 20px;
+  color: #1967d2;
 }
-.review__container .owl-carousel .owl-stage-outer .owl-stage .owl-item .item .review-box__container__pro {
+.review__container .owl-carousel .owl-stage-outer .owl-stage .owl-item .item .review-box__container__wrapper__pro {
   font-size: 0.9rem;
   color: #5c6770;
   text-align: center;
+  margin-top: auto;
 }
 
 .loading-categories-overlay {

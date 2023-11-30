@@ -24,9 +24,11 @@ const userAlreadyRegistered = async (req, res) => {
     return res.status(200).json({ registered: true, id: user._id });
   } catch (error) {
     console.log("error on userAlreadyRegistered", error);
-    return res.status(400).json({ message: "Ocorreu um erro na verificação, tente novamente mais tarde" });
+    return res
+      .status(400)
+      .json({ message: "Ocorreu um erro na verificação, tente novamente mais tarde" });
   }
-}
+};
 
 const completeRegister = async (req, res) => {
   try {
@@ -725,6 +727,12 @@ const sendReview = async (req, res) => {
   try {
     const { userId, orderId, rate, details } = req.body;
 
+    const order = await Order.findOne({ _id: orderId });
+
+    if (!order) {
+      return res.status(404).json({ message: "Pedido não encontrado" });
+    }
+
     const userUpdated = await User.findOneAndUpdate(
       { _id: userId, "ordersBuyed.orderId": orderId },
       {
@@ -732,6 +740,7 @@ const sendReview = async (req, res) => {
           "ordersBuyed.$.orderReview": {
             rate,
             details,
+            name: order.requesterName,
           },
         },
       },
@@ -1105,6 +1114,40 @@ const passwordRecovery = async (req, res) => {
   }
 };
 
+const getReviewsFromCategory = async (req, res) => {
+  try {
+    const { categoryId } = req.query;
+
+    const professionalsFromCategory = await User.find({ "service.categoryId": categoryId });
+    const professionalsWithReviews = professionalsFromCategory.filter((professional) =>
+      professional.ordersBuyed.some((order) => Object.keys(order.orderReview).length > 0),
+    );
+    let reviews = [];
+
+    for (let i = 0; i < professionalsFromCategory.length; i++) {
+      for (let j = 0; j < professionalsFromCategory[i].ordersBuyed.length; j++) {
+        reviews.push({
+          professionalName:
+            professionalsFromCategory[i].name + " " + professionalsFromCategory[i].lastName,
+          category: professionalsFromCategory[i].service.categoryName,
+          rate: professionalsFromCategory[i].ordersBuyed[j].orderReview.rate,
+          details: professionalsFromCategory[i].ordersBuyed[j].orderReview.details,
+          reviewerName: professionalsFromCategory[i].ordersBuyed[j].orderReview.name,
+        });
+      }
+    }
+
+    return res.status(200).json(reviews);
+  } catch (error) {
+    console.log("Error on getReviewsFromCategory", error);
+
+    return res.status(400).json({
+      message: "Ocorreu um erro durante a busca das avaliações da categoria",
+      error,
+    });
+  }
+};
+
 module.exports = {
   userAlreadyRegistered,
   completeRegister,
@@ -1119,4 +1162,5 @@ module.exports = {
   sendReview,
   requestPasswordChange,
   passwordRecovery,
+  getReviewsFromCategory,
 };

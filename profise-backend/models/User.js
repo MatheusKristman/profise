@@ -61,6 +61,7 @@ const userSchema = mongoose.Schema({
       orderReview: {
         rate: { type: Number },
         details: { type: String },
+        name: { type: String },
       },
     },
   ],

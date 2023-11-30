@@ -50,47 +50,69 @@
     .owl-carousel {
       .owl-stage-outer {
         .owl-stage {
+          display: flex;
+
           .owl-item {
+            flex: 1 0 auto;
+
             .item {
+              height: 100%;
+
               .review-box {
+                height: 100%;
                 border: 1px solid $lightGray;
                 border-radius: 8px;
                 padding: 30px;
 
                 &__container {
+                  height: 100%;
                   width: 100%;
                   display: flex;
                   flex-direction: column;
                   align-items: center;
+                  justify-content: space-between;
+                  gap: 20px;
 
-                  &__title {
-                    font-size: 1.2rem;
-                    margin-bottom: 10px;
-                    text-align: center;
-                  }
-
-                  &__desc {
-                    font-size: 1rem;
-                    color: $gray;
-                    text-align: center;
-                    line-height: 30px;
-                    margin-bottom: 20px;
-                  }
-
-                  &__rating {
+                  &__wrapper {
+                    width: 100%;
                     display: flex;
+                    flex-direction: column;
                     align-items: center;
-                    justify-content: center;
-                    gap: 5px;
-                    font-size: 0.8rem;
-                    color: $blue;
-                    margin-bottom: 20px;
-                  }
 
-                  &__pro {
-                    font-size: 0.9rem;
-                    color: $gray;
-                    text-align: center;
+                    &__title {
+                      font-size: 1.2rem;
+                      margin-bottom: 10px;
+                      text-align: center;
+                    }
+
+                    &__desc {
+                      font-size: 1rem;
+                      color: $gray;
+                      text-align: center;
+                      line-height: 30px;
+                    }
+
+                    &__rating {
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      gap: 10px;
+                      font-size: 1.25rem;
+                      margin-bottom: 20px;
+                      color: $blue;
+
+                      // i {
+                      //   width: 25px;
+                      //   height: 25px;
+                      // }
+                    }
+
+                    &__pro {
+                      font-size: 0.9rem;
+                      color: $gray;
+                      text-align: center;
+                      margin-top: auto;
+                    }
                   }
                 }
               }
